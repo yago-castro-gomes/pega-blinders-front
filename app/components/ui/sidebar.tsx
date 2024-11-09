@@ -125,9 +125,6 @@ const SidebarProvider = React.forwardRef<
       [state, open, setOpen, isMobile, openMobile, setOpenMobile, toggleSidebar]
     );
 
-    function cn(arg0: string, className: string | undefined): string | undefined {
-      throw new Error('Function not implemented.');
-    }
 
     return (
       <SidebarContext.Provider value={contextValue}>
@@ -295,10 +292,6 @@ const SidebarRail = React.forwardRef<
 >(({ className, ...props }, ref) => {
   const { toggleSidebar } = useSidebar();
 
-  function cn(arg0: string, arg1: string, arg2: string, arg3: string, arg4: string, arg5: string, className: string | undefined): string | undefined {
-    throw new Error('Function not implemented.');
-  }
-
   return (
     <button
       ref={ref}
@@ -326,10 +319,6 @@ const SidebarInset = React.forwardRef<
   HTMLDivElement,
   React.ComponentProps<'main'>
 >(({ className, ...props }, ref) => {
-  function cn(arg0: string, arg1: string, className: string | undefined): string | undefined {
-    throw new Error('Function not implemented.');
-  }
-
   return (
     <main
       ref={ref}
@@ -367,9 +356,6 @@ const SidebarHeader = React.forwardRef<
   HTMLDivElement,
   React.ComponentProps<'div'>
 >(({ className, ...props }, ref) => {
-  function cn(arg0: string, className: string | undefined): string | undefined {
-    throw new Error('Function not implemented.');
-  }
 
   return (
     <div
@@ -386,9 +372,7 @@ const SidebarFooter = React.forwardRef<
   HTMLDivElement,
   React.ComponentProps<'div'>
 >(({ className, ...props }, ref) => {
-  function cn(arg0: string, className: string | undefined): string | undefined {
-    throw new Error('Function not implemented.');
-  }
+
 
   return (
     <div
@@ -421,9 +405,6 @@ const SidebarContent = React.forwardRef<
   HTMLDivElement,
   React.ComponentProps<'div'>
 >(({ className, ...props }, ref) => {
-  function cn(arg0: string, className: string | undefined): string | undefined {
-    throw new Error('Function not implemented.');
-  }
 
   return (
     <div
@@ -443,9 +424,6 @@ const SidebarGroup = React.forwardRef<
   HTMLDivElement,
   React.ComponentProps<'div'>
 >(({ className, ...props }, ref) => {
-  function cn(arg0: string, className: string | undefined): string | undefined {
-    throw new Error('Function not implemented.');
-  }
 
   return (
     <div
@@ -463,10 +441,6 @@ const SidebarGroupLabel = React.forwardRef<
   React.ComponentProps<'div'> & { asChild?: boolean }
 >(({ className, asChild = false, ...props }, ref) => {
   const Comp = asChild ? Slot : 'div';
-
-  function cn(arg0: string, arg1: string, className: string | undefined): string | undefined {
-    throw new Error('Function not implemented.');
-  }
 
   return (
     <Comp
@@ -489,9 +463,6 @@ const SidebarGroupAction = React.forwardRef<
 >(({ className, asChild = false, ...props }, ref) => {
   const Comp = asChild ? Slot : 'button';
 
-  function cn(arg0: string, arg1: string, arg2: string, className: string | undefined): string | undefined {
-    throw new Error('Function not implemented.');
-  }
 
   return (
     <Comp
@@ -639,9 +610,6 @@ const SidebarMenuAction = React.forwardRef<
 >(({ className, asChild = false, showOnHover = false, ...props }, ref) => {
   const Comp = asChild ? Slot : 'button';
 
-  function cn(arg0: string, arg1: string, arg2: string, arg3: string, arg4: string, arg5: string, arg6: string | boolean, className: string | undefined): string | undefined {
-    throw new Error('Function not implemented.');
-  }
 
   return (
     <Comp
@@ -696,10 +664,6 @@ const SidebarMenuSkeleton = React.forwardRef<
   const width = React.useMemo(() => {
     return `${Math.floor(Math.random() * 40) + 50}%`;
   }, []);
-
-  function cn(arg0: string, className: string | undefined): string | undefined {
-    throw new Error('Function not implemented.');
-  }
 
   return (
     <div
@@ -760,10 +724,6 @@ const SidebarMenuSubButton = React.forwardRef<
   }
 >(({ asChild = false, size = 'md', isActive, className, ...props }, ref) => {
   const Comp = asChild ? Slot : 'a';
-
-  function cn(arg0: string, arg1: string, arg2: string | boolean, arg3: string | boolean, arg4: string, className: string | undefined): string | undefined {
-    throw new Error('Function not implemented.');
-  }
 
   return (
     <Comp
