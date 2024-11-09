@@ -1,24 +1,11 @@
 'use client';
+import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator } from '@radix-ui/react-dropdown-menu';
 import { ChevronUp } from 'lucide-react';
-import Image from 'next/image';
-import { type User } from 'next-auth';
-import { signOut } from 'next-auth/react';
 import { useTheme } from 'next-themes';
+import Image from 'next/image';
+import { SidebarMenu, SidebarMenuItem, SidebarMenuButton } from '../ui/sidebar';
 
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
-import {
-  SidebarMenu,
-  SidebarMenuButton,
-  SidebarMenuItem,
-} from '@/components/ui/sidebar';
-
-export function SidebarUserNav({ user }: { user: User }) {
+export function SidebarUserNav({ user }: { user: any }) {
   const { setTheme, theme } = useTheme();
 
   return (
@@ -53,9 +40,7 @@ export function SidebarUserNav({ user }: { user: User }) {
               <button
                 className="w-full cursor-pointer"
                 onClick={() => {
-                  signOut({
-                    redirectTo: '/',
-                  });
+                  window.location.href = '/api/auth/signout'
                 }}
               >
                 Sign out

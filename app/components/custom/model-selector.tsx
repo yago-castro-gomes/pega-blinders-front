@@ -2,8 +2,12 @@
 
 import { startTransition, useMemo, useOptimistic, useState } from 'react';
 
+const models = [
+  { id: 'model1', label: 'Model 1', description: 'Description for Model 1' },
+  { id: 'model2', label: 'Model 2', description: 'Description for Model 2' },
+  // Add more models as needed
+];
 import { cn } from '@/lib/utils';
-
 import { CheckCirclFillIcon, ChevronDownIcon } from './icons';
 import { saveModelId } from '@/app/[locale]/(chat)/actions';
 import { Button } from '../ui/button';

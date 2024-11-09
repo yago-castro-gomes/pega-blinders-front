@@ -40,6 +40,7 @@ export interface UICanvas {
     width: number;
     height: number;
   };
+  votes: Array<string>;
 }
 
 export function Canvas({
@@ -87,24 +88,24 @@ export function Canvas({
     data: documents,
     isLoading: isDocumentsFetching,
     mutate: mutateDocuments,
-  } = useSWR<Array<Document>>(
+  } = useSWR<Array<any>>(
     canvas && canvas.status !== 'streaming'
       ? `/api/document?id=${canvas.documentId}`
       : null,
   );
 
-  const { data: suggestions } = useSWR<Array<Suggestion>>(
+  const { data: suggestions } = useSWR<Array<any>>(
     documents && canvas && canvas.status !== 'streaming'
       ? `/api/suggestions?documentId=${canvas.documentId}`
       : null,
-    fetcher,
+    null,
     {
       dedupingInterval: 5000,
     }
   );
 
   const [mode, setMode] = useState<'edit' | 'diff'>('edit');
-  const [document, setDocument] = useState<Document | null>(null);
+  const [document, setDocument] = useState<any | null>(null);
   const [currentVersionIndex, setCurrentVersionIndex] = useState(-1);
 
   useEffect(() => {

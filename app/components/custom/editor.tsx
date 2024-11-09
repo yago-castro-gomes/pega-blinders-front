@@ -28,6 +28,7 @@ type EditorProps = {
   status: 'streaming' | 'idle';
   isCurrentVersion: boolean;
   currentVersionIndex: number;
+  suggestions: any;
 };
 
 function PureEditor({
@@ -129,7 +130,7 @@ function PureEditor({
 }
 
 function areEqual(prevProps: EditorProps, nextProps: EditorProps) {
-  if (prevProps.suggestions !== nextProps.suggestions) {
+  if (prevProps?.suggestions !== nextProps.suggestions) {
     return false;
   } else if (prevProps.currentVersionIndex !== nextProps.currentVersionIndex) {
     return false;
