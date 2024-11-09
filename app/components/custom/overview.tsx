@@ -16,10 +16,10 @@ export const Overview = () => {
       <div className="rounded-xl p-6 flex flex-col gap-8 leading-relaxed text-center max-w-xl">
         <p className="flex flex-row justify-center gap-4 items-center">
           <VercelIcon size={32} />
-          <span>+</span>
+          <span style={{ color: 'white' }}>+</span>
           <MessageIcon size={32} />
         </p>
-        <p>
+        <p style={{ color: 'white' }}>
           This is an{' '}
           <Link
             className="font-medium underline underline-offset-4"
@@ -35,7 +35,8 @@ export const Overview = () => {
           <code className="rounded-md bg-muted px-1 py-0.5">useChat</code> hook
           on the client to create a seamless chat experience.
         </p>
-        <p>
+        <p style={{ color: 'white' }}>
+
           You can learn more about the AI SDK by visiting the{' '}
           <Link
             className="font-medium underline underline-offset-4"

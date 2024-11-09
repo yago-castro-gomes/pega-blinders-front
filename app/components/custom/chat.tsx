@@ -59,11 +59,11 @@ export function Chat({
 
   return (
     <>
-      <div className="flex flex-col min-w-0 h-dvh bg-background">
-        <ChatHeader selectedModelId={selectedModelId} />
+      <div className="flex flex-col h-dvh bg-background overflow-y-hidden">
+        {/* <ChatHeader selectedModelId={selectedModelId} /> */}
         <div
           ref={messagesContainerRef}
-          className="flex flex-col min-w-0 gap-6 flex-1 overflow-y-scroll pt-4"
+          className="flex flex-col gap-6 flex-1 overflow-y-hidden pt-24"
         >
           {messages.length === 0 && <Overview />}
 

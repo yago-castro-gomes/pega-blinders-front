@@ -9,9 +9,9 @@ const models = [
 ];
 import { cn } from '@/lib/utils';
 import { CheckCirclFillIcon, ChevronDownIcon } from './icons';
-import { saveModelId } from '@/app/[locale]/(chat)/actions';
 import { Button } from '../ui/button';
 import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem } from '../ui/dropdown-menu';
+import { saveModelId } from '@/app/[locale]/chat/actions';
 
 export function ModelSelector({
   selectedModelId,

@@ -1,7 +1,4 @@
-import { AppSidebar } from '@/app/components/custom/app-sidebar';
 import { SidebarInset, SidebarProvider } from '@/app/components/ui/sidebar';
-import { cookies } from 'next/headers';
-
 
 export const experimental_ppr = true;
 
@@ -14,7 +11,7 @@ export default async function Layout({
 
   return (
     <SidebarProvider defaultOpen={true}>
-      <AppSidebar />
+      {/* <AppSidebar /> */}
       <SidebarInset>{children}</SidebarInset>
     </SidebarProvider>
   );

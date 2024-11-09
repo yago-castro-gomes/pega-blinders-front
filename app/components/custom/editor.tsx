@@ -14,12 +14,9 @@ import {
 import {
   buildContentFromDocument,
   buildDocumentFromContent,
-  createDecorations,
 } from '@/lib/editor/functions';
 import {
-  projectWithPositions,
   suggestionsPlugin,
-  suggestionsPluginKey,
 } from '@/lib/editor/suggestions';
 
 type EditorProps = {

@@ -1,64 +1,64 @@
-import { Node } from 'prosemirror-model';
 import { PluginKey, Plugin } from 'prosemirror-state';
 import { Decoration, DecorationSet, EditorView } from 'prosemirror-view';
 import { createRoot } from 'react-dom/client';
 
+interface Suggestion { }
 
 export interface UISuggestion extends Suggestion {
   selectionStart: number;
   selectionEnd: number;
 }
 
-interface Position {
-  start: number;
-  end: number;
-}
+// interface Position {
+//   start: number;
+//   end: number;
+// }
 
-function findPositionsInDoc(doc: Node, searchText: string): Position | null {
-  let positions: { start: number; end: number } | null = null;
+// function findPositionsInDoc(doc: Node, searchText: string): Position | null {
+//   let positions: { start: number; end: number } | null = null;
 
-  doc.nodesBetween(0, doc.content.size, (node, pos) => {
-    if (node.isText && node.text) {
-      const index = node.text.indexOf(searchText);
+//   doc.nodesBetween(0, doc.content.size, (node, pos) => {
+//     if (node.isText && node.text) {
+//       const index = node.text.indexOf(searchText);
 
-      if (index !== -1) {
-        positions = {
-          start: pos + index,
-          end: pos + index + searchText.length,
-        };
+//       if (index !== -1) {
+//         positions = {
+//           start: pos + index,
+//           end: pos + index + searchText.length,
+//         };
 
-        return false;
-      }
-    }
+//         return false;
+//       }
+//     }
 
-    return true;
-  });
+//     return true;
+//   });
 
-  return positions;
-}
+//   return positions;
+// }
 
-export function projectWithPositions(
-  doc: Node,
-  suggestions: Array<Suggestion>
-): Array<UISuggestion> {
-  return suggestions.map((suggestion) => {
-    const positions = findPositionsInDoc(doc, suggestion.originalText);
+// export function projectWithPositions(
+//   doc: Node,
+//   suggestions: Array<Suggestion>
+// ): Array<UISuggestion> {
+//   return suggestions.map((suggestion) => {
+//     const positions = findPositionsInDoc(doc, suggestion.originalText);
 
-    if (!positions) {
-      return {
-        ...suggestion,
-        selectionStart: 0,
-        selectionEnd: 0,
-      };
-    }
+//     if (!positions) {
+//       return {
+//         ...suggestion,
+//         selectionStart: 0,
+//         selectionEnd: 0,
+//       };
+//     }
 
-    return {
-      ...suggestion,
-      selectionStart: positions.start,
-      selectionEnd: positions.end,
-    };
-  });
-}
+//     return {
+//       ...suggestion,
+//       selectionStart: positions.start,
+//       selectionEnd: positions.end,
+//     };
+//   });
+// }
 
 export function createSuggestionWidget(
   suggestion: UISuggestion,

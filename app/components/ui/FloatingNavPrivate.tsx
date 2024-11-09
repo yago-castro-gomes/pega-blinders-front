@@ -11,7 +11,7 @@ import { cn } from "@/lib/utils";
 import logo from '../../../public/assets/logo.png'
 import Image from "next/image";
 
-export const FloatingNav = ({
+export const FloatingNavPrivate = ({
   navItems,
   className,
 }: {
@@ -27,12 +27,10 @@ export const FloatingNav = ({
   const [visible, setVisible] = useState(true);
 
   useMotionValueEvent(scrollYProgress, "change", (current) => {
-    // Check if current is not undefined and is a number
     if (typeof current === "number") {
       let direction = current! - scrollYProgress.getPrevious()!;
 
       if (scrollYProgress.get() < 0.05) {
-        // also set true for the initial state
         setVisible(true);
       } else {
         if (direction < 0) {
@@ -47,13 +45,6 @@ export const FloatingNav = ({
   return (
     <AnimatePresence mode="wait">
       <motion.div
-        initial={{
-          opacity: 0,
-        }}
-        animate={{
-          y: visible ? 0 : -100,
-          opacity: visible ? 1 : 0,
-        }}
         transition={{
           duration: 0.5,
         }}
