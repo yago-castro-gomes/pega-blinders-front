@@ -65,7 +65,7 @@ export const FloatingNavPrivate = ({
               className={cn(
                 "relative font-semibold items-center flex space-x-1 text-neutral-100 hover:text-secondary transition-all duration-300", // Utilizando cor `primary`
                 "before:p-3",
-                "hover:underline" // Adiciona o sublinhado no hover
+                "hover:underline"
               )}
               style={{
                 textUnderlineOffset: '10px',
@@ -80,13 +80,8 @@ export const FloatingNavPrivate = ({
         </div>
         <div className="flex items-center justify-end w-2/6">
           <Link href={''}>
-            <span className={cn("bg-transparent px-5 text-neutral-100 hover:text-secondary text-sm font-semibold pointer")}>
-              Sign Up
-            </span>
-          </Link>
-          <Link href={''}>
             <span className={cn("bg-transparent px-5 text-secondary hover:text-white text-sm font-semibold pointer")}>
-              LOGIN
+              LOGOUT
             </span>
           </Link>
         </div>

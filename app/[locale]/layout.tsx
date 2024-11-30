@@ -14,7 +14,7 @@ export default async function LocaleLayout({
  
   return (
     <html lang={locale}>
-      <body className="h-[100vh] overflow-hidden">
+      <body className="h-[100vh]">
         <NextIntlClientProvider messages={messages}>
           {children}
         </NextIntlClientProvider>
@@ -22,3 +22,4 @@ export default async function LocaleLayout({
     </html>
   );
 }
+

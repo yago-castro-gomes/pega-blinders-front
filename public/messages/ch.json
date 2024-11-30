@@ -1,0 +1,22 @@
+{
+    "HomePage": {
+      "title": "扑克人工智能分析",
+      "title-center": "用人工智能提升你的游戏"
+    },
+    "LoginPage": {
+      "title": "登录 Pega Blinders",
+      "email": "电子邮件",
+      "password": "密码",
+      "login": "登录",
+      "register": "注册",
+      "forgot": "忘记密码？",
+      "error": "登录错误",
+      "title2": "想象一下分析你的对手",
+      "title3": "并通过人工智能改善你的游戏？",
+      "item1": "超过30万玩家的数据库",
+      "item2": "超过50个个性化统计数据",
+      "item3": "精准且直观的分析",
+      "back": "返回主页"
+    }
+  }
+  

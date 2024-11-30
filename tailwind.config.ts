@@ -10,20 +10,19 @@ const config: Config = {
     extend: {
       colors: {
         black: {
-          DEFAULT: "#DAA520",
+          DEFAULT: "#000",
           100: '#1C1C1C',
           200: '#191919',
           300: '#121212'
         },
         primary: {
           DEFAULT: '#DAA520',
-          100: '#DAA520',
-          200: '#DAA520'
+          100: '#FF0000',
+          200: '#FF0000'
         }
       },
       textColor: {
-        DEFAULT: '#FFFFFF',
-        primary: '#DAA520',
+        primary: '#FF0000',
         secondary: '#DAA520',
         tertiary: '#1C1C1C'
       }

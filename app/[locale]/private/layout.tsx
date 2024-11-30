@@ -1,5 +1,5 @@
 import { FloatingNavPrivate } from '@/app/components/ui/FloatingNavPrivate';
-import { navItems } from '@/data/NavItems';
+import { navItemsPrivate } from '@/data/NavItemsPrivate';
 
 
 export default async function PrivateLayout({
@@ -11,9 +11,9 @@ export default async function PrivateLayout({
   return (
     <div className='bg-black h-screen w-screen'>
       <div>
-        <FloatingNavPrivate navItems={navItems} />
+        <FloatingNavPrivate navItems={navItemsPrivate} />
       </div>
-      <div className='pt-40'>
+      <div className='pt-20'>
         {children}
       </div>
     </div>

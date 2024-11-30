@@ -2,5 +2,20 @@
     "HomePage": {
         "title": "Poker IA Análise",
         "title-center": "Aprimore seu jogo com IA"
+    },
+    "LoginPage": {
+        "title": "Entrar no Pega Blinders",
+        "email": "Email",
+        "password": "Senha",
+        "login": "Entrar",
+        "register": "Registrar",
+        "forgot": "Esqueceu a senha?",
+        "error": "Erro ao fazer login",
+        "title2": "Já imaginou analisar seus adversários",
+        "title3": "e melhorar seu jogo com IA?",
+        "item1": "Base de dados com mais de 300 mil jogadores",
+        "item2": "Mais de 50 estatisticas personalizadas",
+        "item3": "Análise precisa e sem enrolação",
+        "back": "Voltar para a página inicial"
     }
   }

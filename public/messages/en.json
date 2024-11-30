@@ -1,7 +1,22 @@
 {
-    "HomePage": {
-      "title": "Poker AI Analysis",
-      "about": "Go to the about page",
-      "title-center": "Improve your game with AI"
-    }
+  "HomePage": {
+    "title": "Poker AI Analysis",
+    "about": "Go to the about page",
+    "title-center": "Improve your game with AI"
+  },
+  "LoginPage": {
+    "title": "Login to Pega Blinders",
+    "email": "Email",
+    "password": "Password",
+    "login": "Login",
+    "register": "Register",
+    "forgot": "Forgot password?",
+    "error": "Error logging in",
+    "title2": "Ever imagined analyzing your opponents",
+    "title3": "and improving your game with AI?",
+    "item1": "Database with over 300,000 players",
+    "item2": "More than 50 personalized statistics",
+    "item3": "Accurate and straightforward analysis",
+    "back": "Back to the home page"
   }
+}
