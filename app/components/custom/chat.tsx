@@ -149,7 +149,7 @@ export function Chat({ id, initialMessages = [], selectedModelId }: ChatProps) {
         </Sidebar>
 
         {/* Seção principal */}
-        <div className="flex flex-col flex-1">
+        <div className="flex flex-col">
           {/* Botão para alternar a sidebar */}
           <div className="p-2">
             <SidebarTrigger />
@@ -174,18 +174,12 @@ export function Chat({ id, initialMessages = [], selectedModelId }: ChatProps) {
             {/* Exibir as cartas do flop */}
             <FlopSelector flopCards={flopCards} setFlopCards={setFlopCards} />
             {/* Autocomplete para selecionar um jogador */}
-            <div className="ml-auto">
-              <PlayerAutocomplete
-                selectedPlayer={selectedPlayer}
-                setSelectedPlayer={setSelectedPlayer}
-              />
-            </div>
           </div>
 
           {/* Conteúdo principal (mensagens e entrada) */}
           <div
             ref={messagesContainerRef}
-            className="flex flex-col gap-6 flex-1 overflow-y-hidden pt-4"
+            className="flex flex-col gap-6 overflow-y-hidden pt-4"
           >
             {messages.length === 0 && <Overview />}
 
