@@ -17,5 +17,14 @@
         "item2": "Mais de 50 estatisticas personalizadas",
         "item3": "Análise precisa e sem enrolação",
         "back": "Voltar para a página inicial"
-    }
-  }
+    },
+    "PokerChat": {
+        "intro": "Bem-vindo ao nosso chatbot para perguntas e respostas sobre poker!",
+        "description": "Este é um chatbot desenvolvido para aprimorar suas técnicas e se tornar um jogador mais habilidoso.",
+        "openSource": "Código aberto",
+        "learnMore": "Saiba mais sobre a integração da inteligência artificial no poker acessando a",
+        "docs": "documentação"
+      }
+      }
+      
+  

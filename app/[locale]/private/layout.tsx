@@ -13,7 +13,7 @@ export default async function PrivateLayout({
       <div>
         <FloatingNavPrivate navItems={navItemsPrivate} />
       </div>
-      <div className='pt-20'>
+      <div>
         {children}
       </div>
     </div>

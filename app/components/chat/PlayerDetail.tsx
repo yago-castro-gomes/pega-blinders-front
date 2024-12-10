@@ -4,51 +4,42 @@ import React from 'react';
 
 export function PlayerDetails({ player, updatePlayer }) {
   const positions = ['SB', 'BB', 'UTG', 'UTG+1', 'MP', 'HJ', 'CO', 'BTN'];
-  const actions = ['FOLD', 'CHECK', 'CALL', 'RAISE'];
+  const actions = ['Fold', 'Check', 'Call', 'Raise'];
 
   const handlePositionChange = (e) => {
-    const newPosition = e.target.value;
-    updatePlayer({ ...player, position: newPosition });
+    updatePlayer({ ...player, position: e.target.value });
   };
 
   const handleBBChange = (e) => {
-    const newBB = e.target.value;
-    updatePlayer({ ...player, bb: newBB });
+    updatePlayer({ ...player, bb: e.target.value });
   };
 
   const handleActionChange = (e) => {
-    const newAction = e.target.value;
-    if (newAction !== 'RAISE') {
-      updatePlayer({ ...player, action: newAction, raiseAmount: null });
-    } else {
-      updatePlayer({ ...player, action: newAction });
-    }
+    updatePlayer({ 
+      ...player, 
+      action: e.target.value, 
+      raiseAmount: e.target.value === 'Raise' ? player.raiseAmount : null 
+    });
   };
 
   const handleRaiseAmountChange = (e) => {
-    const newRaiseAmount = e.target.value;
-    updatePlayer({ ...player, raiseAmount: newRaiseAmount });
+    updatePlayer({ ...player, raiseAmount: e.target.value });
   };
 
-  // Lista de jogadores (pode ser substituída por dados reais)
   const playersList = ['Jogador 1', 'Jogador 2', 'Jogador 3'];
 
   const handlePlayerNameChange = (e) => {
-    const newName = e.target.value;
-    updatePlayer({ ...player, name: newName });
+    updatePlayer({ ...player, name: e.target.value });
   };
 
   return (
-    <div className="p-4">
-      <h2 className="text-lg font-bold mb-4">Detalhes do Jogador</h2>
-
-      {/* Nome do Jogador */}
-      <div className="mb-4">
-        <label className="block text-sm font-medium mb-1">Nome do Jogador</label>
+    <div className="p-4 text-white text-sm rounded space-y-4">
+      <div>
+        <label className="block text-xs font-medium mb-1">Nome do Jogador</label>
         <select
           value={player.name || ''}
           onChange={handlePlayerNameChange}
-          className="w-full p-2 border rounded"
+          className="w-full p-1 bg-gray-800 border border-gray-700 rounded text-white text-xs"
         >
           <option value="">Selecione um jogador</option>
           {playersList.map((name) => (
@@ -59,72 +50,92 @@ export function PlayerDetails({ player, updatePlayer }) {
         </select>
       </div>
 
-      {/* Posição */}
-      <div className="mb-4">
-        <label className="block text-sm font-medium mb-1">Posição</label>
-        <select
-          value={player.position}
-          onChange={handlePositionChange}
-          className="w-full p-2 border rounded"
-        >
+      <div>
+        <label className="block text-xs font-medium mb-1">Posição</label>
+        <div className="grid grid-cols-4 gap-1">
           {positions.map((pos) => (
-            <option key={pos} value={pos}>
+            <label
+              key={pos}
+              className={`
+                flex items-center justify-center p-1 border rounded cursor-pointer text-xs 
+                transition-all duration-300 ease-in-out
+                ${player.position === pos 
+                  ? 'border-yellow-500 bg-gray-800 shadow-[0_0_10px_2px_rgba(251,191,36,0.5)]' 
+                  : 'border-gray-600 bg-gray-700'}
+                hover:border-yellow-400 hover:shadow-[0_0_10px_2px_rgba(251,191,36,0.5)] hover:scale-105
+              `}
+            >
+              <input
+                type="radio"
+                value={pos}
+                checked={player.position === pos}
+                onChange={handlePositionChange}
+                className="hidden"
+              />
               {pos}
-            </option>
+            </label>
           ))}
-        </select>
+        </div>
       </div>
 
-      {/* BB */}
-      <div className="mb-4">
-        <label className="block text-sm font-medium mb-1">BB</label>
+      <div>
+        <label className="block text-xs font-medium mb-1">BB</label>
         <input
           type="number"
           value={player.bb}
           onChange={handleBBChange}
-          className="w-full p-2 border rounded"
+          className="w-full p-1 bg-gray-800 border border-gray-600 rounded text-white text-xs"
           min="0"
         />
       </div>
 
-      {/* Ação */}
-      <div className="mb-4">
-        <label className="block text-sm font-medium mb-1">Ação</label>
-        <select
-          value={player.action}
-          onChange={handleActionChange}
-          className="w-full p-2 border rounded"
-        >
+      <div>
+        <label className="block text-xs font-medium mb-1">Ação</label>
+        <div className="grid grid-cols-4 gap-1">
           {actions.map((action) => (
-            <option key={action} value={action}>
+            <label
+              key={action}
+              className={`
+                flex items-center justify-center p-1 border rounded cursor-pointer text-xs
+                transition-all duration-300 ease-in-out
+                ${player.action === action 
+                  ? 'border-yellow-500 bg-gray-800 shadow-[0_0_10px_2px_rgba(251,191,36,0.5)]' 
+                  : 'border-gray-600 bg-gray-700'}
+                hover:border-yellow-400 hover:shadow-[0_0_10px_2px_rgba(251,191,36,0.5)] hover:scale-105
+              `}
+            >
+              <input
+                type="radio"
+                value={action}
+                checked={player.action === action}
+                onChange={handleActionChange}
+                className="hidden"
+              />
               {action}
-            </option>
+            </label>
           ))}
-        </select>
+        </div>
       </div>
 
-      {/* Valor do RAISE */}
-      {player.action === 'RAISE' && (
-        <div className="mb-4">
-          <label className="block text-sm font-medium mb-1">Valor do Raise</label>
+      {player.action === 'Raise' && (
+        <div>
+          <label className="block text-xs font-medium mb-1">Valor do Raise</label>
           <input
             type="number"
             value={player.raiseAmount || ''}
             onChange={handleRaiseAmountChange}
-            className="w-full p-2 border rounded"
+            className="w-full p-1 bg-gray-800 border border-gray-600 rounded text-white text-xs"
             min="0"
             placeholder="Valor"
           />
         </div>
       )}
 
-      {/* Exibição de estatísticas (exemplo) */}
       {player.name && (
         <div className="mt-4">
-          <h3 className="text-sm font-bold mb-1">Estatísticas</h3>
-          <p>VPIP: 25%</p>
-          <p>PFR: 20%</p>
-          {/* Você pode adicionar estatísticas reais aqui */}
+          <h3 className="text-xs font-bold mb-1">Estatísticas</h3>
+          <p className="text-xs">VPIP: 25%</p>
+          <p className="text-xs">PFR: 20%</p>
         </div>
       )}
     </div>

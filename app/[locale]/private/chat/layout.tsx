@@ -11,7 +11,6 @@ export default async function Layout({
 
   return (
     <SidebarProvider defaultOpen={true}>
-      {/* <AppSidebar /> */}
       <SidebarInset>{children}</SidebarInset>
     </SidebarProvider>
   );

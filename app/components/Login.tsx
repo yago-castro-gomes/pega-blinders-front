@@ -32,14 +32,12 @@ const LoginPage = () => {
         </ul>
       </div>
 
-      {/* Seção de Login */}
       <div className="w-3/5 flex flex-col justify-center items-center p-12 bg-black-200">
         <div className="flex flex-col items-center mb-8">
           <Image src={logo} alt="Logo" width={100} height={100} className="mb-4" />
           <h1 className="text-3xl font-bold mb-4 text-white">{t('title')}</h1>
         </div>
 
-        {/* Formulário de Login */}
         <div className="space-y-6 w-full max-w-sm">
           <div className="flex flex-col">
             <TextField
@@ -60,7 +58,6 @@ const LoginPage = () => {
           <MagicButton title={t('login')} position="center" />
         </div>
 
-        {/* Link para Homepage */}
         <div className="mt-8 text-sm text-gray-400">
           <a href="/" className="hover:underline">{t('back')}</a>
         </div>

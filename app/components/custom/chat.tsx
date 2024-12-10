@@ -1,5 +1,3 @@
-// Chat.tsx
-
 'use client';
 
 import * as React from 'react';
@@ -60,30 +58,25 @@ export function Chat({ id, initialMessages = [], selectedModelId }: ChatProps) {
       top: 0,
       left: 0,
     },
-    votes: 0, // Adicione esta propriedade se necessário
+    votes: 0,
   });
 
   const [messagesContainerRef, messagesEndRef] = useScrollToBottom<HTMLDivElement>();
 
-  const [attachments, setAttachments] = useState<any[]>([]); // Defina o tipo correto para attachments
+  const [attachments, setAttachments] = useState<any[]>([]);
 
-  // Iniciar apenas com Small Blind e Big Blind
   const initialPositions: Player[] = [
-    { position: 'SB', bb: 100, action: 'FOLD', raiseAmount: null, name: null },
-    { position: 'BB', bb: 100, action: 'FOLD', raiseAmount: null, name: null },
+    { position: 'SB', bb: 100, action: 'Fold', raiseAmount: null, name: null },
+    { position: 'BB', bb: 100, action: 'Fold', raiseAmount: null, name: null },
   ];
   const [positions, setPositions] = useState<Player[]>(initialPositions);
 
-  // Estado para as cartas do flop
   const [flopCards, setFlopCards] = useState<string[]>(['', '', '']);
 
-  // Estado para o jogador selecionado no autocomplete (se aplicável)
-  const [selectedPlayer, setSelectedPlayer] = useState<any>(null); // Defina o tipo correto se necessário
+  const [selectedPlayer, setSelectedPlayer] = useState<any>(null);
 
-  // Estado para o índice do jogador selecionado
   const [selectedPlayerIndex, setSelectedPlayerIndex] = useState<number | null>(null);
 
-  // Função para atualizar os dados de um jogador
   const updatePlayer = (index: number, newPlayerData: Player) => {
     setPositions((prevPositions) => {
       const newPositions = [...prevPositions];
@@ -92,34 +85,28 @@ export function Chat({ id, initialMessages = [], selectedModelId }: ChatProps) {
     });
   };
 
-  // Função para remover um jogador
   const removePlayer = (index: number) => {
     setPositions((prevPositions) => prevPositions.filter((_, i) => i !== index));
 
-    // Atualizar selectedPlayerIndex
     setSelectedPlayerIndex((prevIndex) => {
       if (prevIndex === null) return null;
-      if (prevIndex === index) return null; // O jogador removido era o selecionado
-      if (prevIndex > index) return prevIndex - 1; // Ajustar o índice
-      return prevIndex; // Sem mudança
+      if (prevIndex === index) return null;
+      if (prevIndex > index) return prevIndex - 1;
+      return prevIndex;
     });
   };
 
-  // Função para adicionar um novo jogador
   const addPlayer = () => {
-    // Defina as posições possíveis
     const possiblePositions = ['UTG', 'UTG+1', 'MP', 'HJ', 'CO', 'BTN'];
 
-    // Obtenha as posições já em uso
     const usedPositions = positions.map((p) => p.position);
 
-    // Encontre a próxima posição disponível
     const nextPosition = possiblePositions.find((pos) => !usedPositions.includes(pos));
 
     if (nextPosition) {
       setPositions((prevPositions) => [
         ...prevPositions,
-        { position: nextPosition, bb: 100, action: 'FOLD', raiseAmount: null, name: null },
+        { position: nextPosition, bb: 100, action: 'Fold', raiseAmount: null, name: null },
       ]);
     } else {
       alert('Todas as posições foram adicionadas.');
@@ -128,8 +115,7 @@ export function Chat({ id, initialMessages = [], selectedModelId }: ChatProps) {
 
   return (
     <SidebarProvider>
-      <div className="flex h-dvh bg-background overflow-y-hidden">
-        {/* Sidebar */}
+      <div className="flex bg-background overflow-y-hidden">
         <Sidebar>
           <SidebarHeader>
             <h2 className="text-lg font-bold p-4">Detalhes do Jogador</h2>
@@ -148,14 +134,11 @@ export function Chat({ id, initialMessages = [], selectedModelId }: ChatProps) {
           </SidebarContent>
         </Sidebar>
 
-        {/* Seção principal */}
         <div className="flex flex-col">
-          {/* Botão para alternar a sidebar */}
           <div className="p-2">
             <SidebarTrigger />
           </div>
 
-          {/* Seção com as posições da mesa */}
           <div className="flex items-center gap-2 p-4">
             {positions.map((player, index) => (
               <PlayerBox
@@ -163,7 +146,6 @@ export function Chat({ id, initialMessages = [], selectedModelId }: ChatProps) {
                 player={player}
                 index={index}
                 removePlayer={removePlayer}
-                // Ao clicar no PlayerBox, define o jogador selecionado
                 onClick={() => setSelectedPlayerIndex(index)}
                 isSelected={index === selectedPlayerIndex}
               />
@@ -171,12 +153,9 @@ export function Chat({ id, initialMessages = [], selectedModelId }: ChatProps) {
             <button onClick={addPlayer} className="p-2 border rounded text-secondary text-sm">
               Adicionar Jogador
             </button>
-            {/* Exibir as cartas do flop */}
             <FlopSelector flopCards={flopCards} setFlopCards={setFlopCards} />
-            {/* Autocomplete para selecionar um jogador */}
           </div>
 
-          {/* Conteúdo principal (mensagens e entrada) */}
           <div
             ref={messagesContainerRef}
             className="flex flex-col gap-6 overflow-y-hidden pt-4"
@@ -213,7 +192,6 @@ export function Chat({ id, initialMessages = [], selectedModelId }: ChatProps) {
               messages={messages}
               setMessages={setMessages}
               append={append}
-              // Passar informações adicionais se necessário
               positions={positions}
               flopCards={flopCards}
               selectedPlayer={selectedPlayer}
